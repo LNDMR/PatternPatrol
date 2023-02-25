@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pattern Patrol</string>
+    <!-- TODO: all educational content and more -->
+    <string name="depression">
+        "Depression - Ursachen, Symptome und Behandlungsmöglichkeiten \n\n"
+
+        "Depression ist eine ernsthafte psychische Erkrankung, die das Leben des Betroffenen"
+        "erheblich beeinträchtigen kann. Die Ursachen von Depressionen sind komplex und können"
+        "genetische, biologische, psychologische und soziale Faktoren umfassen. Die Symptome einer"
+        "Depression umfassen eine tiefe Traurigkeit, Interessenverlust, Erschöpfung,"
+        "Schlafstörungen, Appetitveränderungen und negative Gedanken.  \n"
+
+        "Die Kognitive Verhaltenstherapie ist eine der effektivsten Behandlungsmöglichkeiten"
+        "für Depressionen. Sie basiert auf der Annahme, dass negative Gedanken und Verhaltensmuster"
+        "zur Entstehung und Aufrechterhaltung von Depressionen beitragen. Im Rahmen der Therapie"
+        "lernen die Patienten, ihre Denkverzerrungen zu identifizieren und zu korrigieren, negative"
+        "Gedanken durch realistischere zu ersetzen und neue, positive Verhaltensmuster zu entwickeln. \n"
+    </string>
+    <string name="cbt">
+        "Kognitive Verhaltenstherapie - Grundlagen und Anwendungsbereiche \n\n"
+
+        "Die Kognitive Verhaltenstherapie ist eine evidenzbasierte Therapieform, die auf"
+        "der Annahme beruht, dass Gedanken, Emotionen und Verhaltensmuster miteinander interagieren"
+        "und zur Entstehung und Aufrechterhaltung von psychischen Störungen beitragen können.\n"
+
+        "Im Rahmen der Kognitiven Verhaltenstherapie werden Patienten dabei unterstützt, ihre"
+        "Denkverzerrungen zu identifizieren und zu korrigieren, negative Gedanken durch"
+        "realistischere zu ersetzen und neue, positive Verhaltensmuster zu entwickeln. Die Therapie"
+        "ist in der Behandlung von Depressionen, Angststörungen, Zwangsstörungen, Essstörungen und"
+        "vielen anderen psychischen Erkrankungen wirksam. \n"
+    </string>
+</resources>
