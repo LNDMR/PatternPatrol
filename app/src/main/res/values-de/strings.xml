@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pattern Patrol</string>
+    <!-- TODO: all UI elements -->
+    <!-- titles -->
+    <string name="home_title">"Meine Gedanken"</string>
+    <!-- buttons -->
+    <string name="button_add">"hinzufügen"</string>
+    <string name="button_save">"speichern"</string>
+    <string name="button_practice">"üben"</string>
+    <string name="button_help">"hilfe"</string>
+    <string name="button_check">"check"</string>
     <!-- TODO: all educational content and more -->
-    <string name="depression">
-        "Depression - Ursachen, Symptome und Behandlungsmöglichkeiten \n\n"
-
+    <string name="ed_depression_title">"Depression - Ursachen, Symptome und Behandlungsmöglichkeiten \n\n"</string>
+    <string name="ed_depression">
         "Depression ist eine ernsthafte psychische Erkrankung, die das Leben des Betroffenen"
         "erheblich beeinträchtigen kann. Die Ursachen von Depressionen sind komplex und können"
         "genetische, biologische, psychologische und soziale Faktoren umfassen. Die Symptome einer"
@@ -17,9 +25,8 @@
         "lernen die Patienten, ihre Denkverzerrungen zu identifizieren und zu korrigieren, negative"
         "Gedanken durch realistischere zu ersetzen und neue, positive Verhaltensmuster zu entwickeln. \n"
     </string>
-    <string name="cbt">
-        "Kognitive Verhaltenstherapie - Grundlagen und Anwendungsbereiche \n\n"
-
+    <string name="ed_cbt_title">"Kognitive Verhaltenstherapie - Grundlagen und Anwendungsbereiche \n\n"</string>
+    <string name="ed_cbt">
         "Die Kognitive Verhaltenstherapie ist eine evidenzbasierte Therapieform, die auf"
         "der Annahme beruht, dass Gedanken, Emotionen und Verhaltensmuster miteinander interagieren"
         "und zur Entstehung und Aufrechterhaltung von psychischen Störungen beitragen können.\n"
@@ -29,5 +36,20 @@
         "realistischere zu ersetzen und neue, positive Verhaltensmuster zu entwickeln. Die Therapie"
         "ist in der Behandlung von Depressionen, Angststörungen, Zwangsstörungen, Essstörungen und"
         "vielen anderen psychischen Erkrankungen wirksam. \n"
+    </string>
+    <string name="ed_distortion_beck_title">"Denkverzerrungen nach Beck - Arten und Auswirkungen \n\n"</string>
+    <string name="ed_distortion_beck">
+        "Aaron T. Beck, einer der Begründer der Kognitiven Verhaltenstherapie, identifizierte eine"
+        "Reihe von Denkverzerrungen, die zur Entstehung und Aufrechterhaltung von psychischen"
+        "Störungen beitragen können. Diese Denkverzerrungen sind Muster von fehlerhaftem Denken,"
+        "die dazu führen, dass die Realität verzerrt wahrgenommen wird. \n"
+
+        "Zu den Denkverzerrungen nach Beck gehören unter anderem das All-oder-Nichts-Denken, das"
+        "Übergeneralisieren, das Mentale Filtern, das Disqualifizieren des Positiven,"
+        "das Jumping to Conclusions und das Mind Reading. Diese Denkverzerrungen können dazu führen,"
+        "dass negative Gedanken und Emotionen verstärkt werden und Betroffene in einen Teufelskreis"
+        "aus Negativität und Pessimismus geraten. Im Rahmen der Kognitiven Verhaltenstherapie"
+        "werden Patienten dabei unterstützt, ihre Denkverzerrungen zu identifizieren"
+        "und zu korrigieren, um negative Gedanken und Verhaltensmuster zu durchbrechen. \n"
     </string>
 </resources>

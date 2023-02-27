@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">Pattern Patrol</string>
+    <!-- TODO: all UI elements -->
+    <!-- titles -->
+    <string name="home_title">"my thoughts"</string>
+    <!-- buttons -->
+    <string name="button_add">"add thought"</string>
+    <string name="button_save">"save"</string>
+    <string name="button_practice">"practice"</string>
+    <string name="button_help">"help"</string>
+    <string name="button_check">"check"</string>
     <!-- TODO: all educational content and more -->
-    <string name="depression">
-        "Depression - Causes, Symptoms, and Treatment Options \n\n"
-
+    <string name="ed_depression_title">"Depression - Causes, Symptoms, and Treatment Options \n\n"</string>
+    <string name="ed_depression">
         "Depression is a serious mental illness that can significantly impair a person's quality"
         "of life. The causes of depression are complex and may include genetic, biological,"
         "psychological, and social factors. Symptoms of depression include deep sadness, loss of"
@@ -15,9 +23,8 @@
         "and correct their distorted thinking, replace negative thoughts with more realistic ones,"
         "and develop new, positive behavior patterns.\n"
     </string>
-    <string name="cbt">
-        "Cognitive Behavioral Therapy - Fundamentals and Applications\n\n"
-
+    <string name="ed_cbt_title">"Cognitive Behavioral Therapy - Fundamentals and Applications \n\n"</string>
+    <string name="ed_cbt">
         "Cognitive Behavioral Therapy (CBT) is an evidence-based therapy that is"
         "based on the assumption that thoughts, emotions, and behavior patterns"
         "interact with each other and can contribute to the development and"
@@ -28,5 +35,20 @@
         "ones, and developing new positive behavioral patterns. This therapy is"
         "effective in the treatment of depression, anxiety disorders, obsessive-"
         "compulsive disorder, eating disorders, and many other mental illnesses. \n"
+    </string>
+    <string name="ed_distortion_beck_title">"Cognitive Distortions According to Beck - Types and Effects \n\n"</string>
+    <string name="ed_distortion_beck">
+        "Aaron T. Beck, one of the founders of Cognitive Behavioral Therapy, identified a range of"
+        "cognitive distortions that can contribute to the development and maintenance"
+        "of psychological disorders. These distortions are patterns of faulty thinking that lead to"
+        "a distorted perception of reality. \n"
+
+        "Some of the cognitive distortions according to Beck include all-or-nothing thinking,"
+        "overgeneralization, mental filtering, disqualifying the positive, jumping to conclusions,"
+        "and mind reading. These distortions can lead to the reinforcement of negative thoughts and"
+        "emotions, trapping individuals in a vicious cycle of negativity and pessimism."
+        "In the context of Cognitive Behavioral Therapy, patients are supported in identifying and"
+        "correcting their cognitive distortions, in order to break negative thought and"
+        "behavior patterns. \n"
     </string>
 </resources>
