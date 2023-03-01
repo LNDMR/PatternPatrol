@@ -10,10 +10,10 @@ import com.syntax.koetter.patternpatrol.data.model.Day
 import com.syntax.koetter.patternpatrol.data.model.Thought
 
 // TODO: maybe constructor needs a parameter (val date: Day) to fill thoughtList -> date.thoughts
-class ThoughtAdapter : RecyclerView.Adapter<ThoughtAdapter.ThoughtViewHolder>(){
+class ThoughtAdapter() : RecyclerView.Adapter<ThoughtAdapter.ThoughtViewHolder>(){
 
     // TODO: understand where & how it ll be filled
-    private val thoughtsList = mutableListOf<Thought>()
+    private var thoughtsList = listOf<Thought>()
 
 
     // is aware of the specific parts of the layout that need to be updated when the view is recycled
@@ -35,6 +35,13 @@ class ThoughtAdapter : RecyclerView.Adapter<ThoughtAdapter.ThoughtViewHolder>(){
         val thoughtLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.thought_item, parent, false)
         return ThoughtViewHolder(thoughtLayout)
+    }
+
+
+    // TODO: submitList(list)
+    fun submitList(list: List<Thought>){
+        thoughtsList = list
+        notifyItemInserted(list.lastIndex)
     }
 
 

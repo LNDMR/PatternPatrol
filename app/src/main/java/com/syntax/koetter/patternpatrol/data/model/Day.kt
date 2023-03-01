@@ -3,7 +3,7 @@ package com.syntax.koetter.patternpatrol.data.model
 data class Day(
     val thoughts: MutableList<Thought>,
     // TODO: val date: LocalDate,
-    //  tmp solution
+    //  tmp solution - System.currentTimeMillis() & Calendar() ??
     val date: String,
     // TODO: val weekday: DayOfWeek,
     //  tmp solution

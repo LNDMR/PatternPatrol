@@ -4,9 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.syntax.koetter.patternpatrol.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/educationalFragment"
+        android:name="com.syntax.koetter.patternpatrol.ui.EducationalFragment"
+        android:label="fragment_educational"
+        tools:layout="@layout/fragment_educational" >
+        <action
+            android:id="@+id/action_educational_to_distortions"
+            app:destination="@id/distortionsFragment" />
+        <action
+            android:id="@+id/action_educational_to_content"
+            app:destination="@id/contentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.syntax.koetter.patternpatrol.ui.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/distortionsFragment"
+        android:name="com.syntax.koetter.patternpatrol.ui.DistortionsFragment"
+        tools:layout="@layout/fragment_distortions"
+        android:label="DistortionsFragment" >
+        <action
+            android:id="@+id/action_distortions_to_educational"
+            app:destination="@id/educationalFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="com.syntax.koetter.patternpatrol.ui.ContentFragment"
+        tools:layout="@layout/fragment_content"
+        android:label="ContentFragment" >
+        <action
+            android:id="@+id/action_content_to_educational"
+            app:destination="@id/educationalFragment" />
+    </fragment>
 </navigation>

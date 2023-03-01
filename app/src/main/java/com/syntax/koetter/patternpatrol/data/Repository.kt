@@ -7,6 +7,7 @@ import com.syntax.koetter.patternpatrol.data.model.Thought
 
 class Repository {
 
+
     // TODO: prop needs modification later on
     fun loadThoughts(date: Day): MutableList<Thought>{
         // if(date.thoughts.isEmpty()){
@@ -24,18 +25,38 @@ class Repository {
         return mutableListOf(
             Day(
                 toughts,
-                "26.02.2023",
+                "26",
                 "Sun."
             ),
             Day(
                 toughts,
-                "25.02.2023",
+                "25",
                 "Sat."
             ),
             Day(
                 toughts,
-                "24.02.2023",
+                "24",
                 "Fri."
+            ),
+            Day(
+                toughts,
+                "23",
+                "Thu."
+            ),
+            Day(
+                toughts,
+                "22",
+                "Wed."
+            ),
+            Day(
+                toughts,
+                "21",
+                "Tue."
+            ),
+            Day(
+                toughts,
+                "20",
+                "Mon."
             )
         )
     }
