@@ -8,12 +8,9 @@ import com.syntax.koetter.patternpatrol.databinding.DayItemBinding
 
 class DayAdapter(val onClick: (Day) -> Unit) : RecyclerView.Adapter<DayAdapter.DayViewHolder>(){
 
-    // dataList is updated by submitList()
-    // Q: first time filled ?
     private var daysList = listOf<Day>()
 
-
-    // view + layout that is needed to display the next item
+    // view + layout that is needed to display the next day item
     inner class DayViewHolder(val binding: DayItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bindDay(day: Day){
             binding.dayDayText.text = day.date
@@ -21,7 +18,7 @@ class DayAdapter(val onClick: (Day) -> Unit) : RecyclerView.Adapter<DayAdapter.D
         }
     }
 
-    // is called by the RV when it needs to create a new ViewHolder instance to represent an item
+    // is called by the RV when it needs to create a new ViewHolder instance to represent a day
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayViewHolder {
         val binding = DayItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return DayViewHolder(binding)
@@ -31,9 +28,8 @@ class DayAdapter(val onClick: (Day) -> Unit) : RecyclerView.Adapter<DayAdapter.D
     override fun onBindViewHolder(holder: DayViewHolder, position: Int) {
         holder.bindDay(daysList[position])
         holder.binding.dayCard.setOnClickListener {
-            // TODO: update selected day item + bind selectedDay.thoughts to homeThoughtRV
-            // Q: is this triggering a new ThoughtAdapter instance with the parameter = dayslist[position] ?
-            // Q: how to update selectedDay with no access to the viewModel ?
+            // TODO: update selectedDay + update ThoughtAdapter
+            // Q: is thoughtAdapter automatically updated because dayAdapter is automatically updated ?
             onClick(daysList[position])
         }
     }

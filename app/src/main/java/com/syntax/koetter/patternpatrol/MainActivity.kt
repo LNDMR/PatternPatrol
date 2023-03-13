@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         // set default fragment
         navigateTo(HomeFragment())
+        binding.bottomNav.menu.findItem(R.id.menu_home).setChecked(true)
 
         // LATER: menu_profile / menu_settings
         binding.bottomNav.setOnItemSelectedListener {

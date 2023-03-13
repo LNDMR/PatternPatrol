@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.syntax.koetter.patternpatrol.data.Repository
+import com.syntax.koetter.patternpatrol.data.model.CognitiveDistortion
 import com.syntax.koetter.patternpatrol.data.model.Day
 import com.syntax.koetter.patternpatrol.data.model.Thought
 
@@ -18,29 +19,40 @@ class MainViewModel: ViewModel() {
     val daysList: LiveData<List<Day>>
         get() = _daysList
 
-    // LATER: default for selectedDay = current day
+    // PROBLEM: default for selectedDay = current day
     private var _selectedDay = MutableLiveData<Day>()
     val selectedDay: LiveData<Day>
         get() = _selectedDay
 
-    // is called at instantiation of DayAdapter
+    // PROBLEM: is called at instantiation of DayAdapter but does not have any starting item -> does not work
     fun setSelectedDay(day: Day){
         _selectedDay.value = day
     }
 
+    // PROBLEM: ongoing
     // selectedDay.thoughts wrapped in LiveData private(mutable) & public(static)
     private val _thoughtsList = MutableLiveData<List<Thought>>(selectedDay.value?.thoughts)
     val thoughtsList: LiveData<List<Thought>>
         get() = _thoughtsList
 
+    // PROBLEM: ongoing
     // selectedThought is determined when thought_item is clicked -> is wrapped in LiveData private(mutable) & public(static)
-    // Q: default is null ?
     private var _selectedThought = MutableLiveData<Thought>()
     val selectedThought: LiveData<Thought>
         get() = _selectedThought
 
+    // Q: is necessary? is fix ..
+    // distortionsList wrapped in LiveData private(mutable) & public(static)
+    private val _distortionsList = MutableLiveData<List<CognitiveDistortion>>(repository.loadDistortions())
+    val distortionsList: LiveData<List<CognitiveDistortion>>
+        get() = _distortionsList
+
+
     init {
+        _selectedDay.value = daysList.value?.last()
         _daysList.value = daysList.value
+        _thoughtsList.value = selectedDay.value?.thoughts
+        _distortionsList.value = distortionsList.value
     }
 
     // is called at instantiation of ThoughtAdapter

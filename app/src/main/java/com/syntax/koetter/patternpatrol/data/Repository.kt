@@ -62,7 +62,10 @@ class Repository {
     }
 
 
-    // TODO: see CognitiveDistortion file: list of cognitive distortions -> not sure where to implement etc.
+    fun loadDistortions(): List<CognitiveDistortion> {
+        return mutableListOf(cD1,cD2,cD3,cD4,cD5,cD6,cD7,cD8,cD9,cD10,cD11,cD12)
+    }
+
     val cD1 = CognitiveDistortion(
         "ALL-OR-NOTHING THINKING",
         "You see things in black-and-white categories. If your performance falls shor" +

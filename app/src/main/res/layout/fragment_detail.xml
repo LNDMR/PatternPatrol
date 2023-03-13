@@ -71,6 +71,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detail_toolbar" />
 
+        <TextView
+            android:id="@+id/detail_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="12:38"
+            android:textAlignment="viewStart"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_keyword_editText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/detail_keyword_editText"
+            app:layout_constraintTop_toTopOf="@+id/detail_keyword_editText" />
+
         <EditText
             android:id="@+id/detail_content_editMultiText"
             android:layout_width="0dp"
@@ -85,24 +98,17 @@
             app:layout_constraintStart_toStartOf="@+id/detail_keyword_editText"
             app:layout_constraintTop_toBottomOf="@+id/detail_keyword_editText" />
 
-        <TextView
-            android:id="@+id/detail_time_text"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detail_distortion_recycler"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/distortion_item"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="12:38"
-            app:layout_constraintBottom_toBottomOf="@+id/detail_keyword_editText"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/detail_keyword_editText"
-            app:layout_constraintTop_toTopOf="@+id/detail_keyword_editText"
-            android:textAlignment="viewStart"/>
-
-        <!-- (Card-)View [ImageButton, TextView, Button(s)] -->
-
-        <!-- (Card-)View [(Card-)View, MultilineEditText ]-->
-        <!-- (Card-)View [PlainEditText, TextView, TextView]) -->
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_content_editMultiText"
+            android:visibility="visible"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -3,12 +3,14 @@ package com.syntax.koetter.patternpatrol.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.syntax.koetter.patternpatrol.R
 import com.syntax.koetter.patternpatrol.data.model.Thought
 import com.syntax.koetter.patternpatrol.databinding.ThoughtItemBinding
+import com.syntax.koetter.patternpatrol.ui.HomeFragment
 
-// constructor takes parameter get the right thoughtsList from 'currentDay.thoughts'
+
 class ThoughtAdapter(private val list: List<Thought>, val onClick: (Thought) -> Unit) : RecyclerView.Adapter<ThoughtAdapter.ThoughtViewHolder>(){
 
     // dataList is updated by submitList()
@@ -21,12 +23,6 @@ class ThoughtAdapter(private val list: List<Thought>, val onClick: (Thought) -> 
             binding.thoughtKeywordText.text = thought.keyword
             binding.thoughtPreviewText.text = thought.content
             binding.thoughtTimeText.text = thought.time
-
-            // edit already existing Thought instance in Detail Fragment
-            binding.thoughtCard.setOnClickListener {
-                // TODO: navigation to DetailFragment
-                Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_detailFragment)
-            }
         }
 
     }
@@ -41,8 +37,10 @@ class ThoughtAdapter(private val list: List<Thought>, val onClick: (Thought) -> 
     override fun onBindViewHolder(holder: ThoughtViewHolder, position: Int) {
         if(!thoughtsList.isEmpty()) {
             holder.bindThought(thoughtsList[position])
-            holder.binding.root.setOnClickListener {
+            holder.binding.thoughtCard.setOnClickListener {
                 onClick(thoughtsList[position])
+                // Navigation.findNavController(holder.itemView).navigate(R.id.action_homeFragment_to_detailFragment)
+                // holder.itemView.findNavController().navigate(HomeFragment().id)
             }
         } else holder.binding
 

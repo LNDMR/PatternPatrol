@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.syntax.koetter.patternpatrol.MainViewModel
+import com.syntax.koetter.patternpatrol.R
 import com.syntax.koetter.patternpatrol.databinding.FragmentEducationalBinding
 import androidx.viewpager.widget.PagerAdapter as PagerAdapter
 
@@ -44,5 +46,8 @@ class EducationalFragment: Fragment() {
         //     XXX.submitList(it)
         // }
         // }
+        binding.educationalTmpText.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_educational_to_distortions)
+        }
     }
 }
