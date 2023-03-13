@@ -10,41 +10,79 @@ import com.syntax.koetter.patternpatrol.data.model.Thought
 // always inherits from class ViewModel
 class MainViewModel: ViewModel() {
 
-    // instance of repository
+    // LATER: implement API parameter: private val repository = Repository(Api)
     private val repository = Repository()
 
-    // TODO: implement API as parameter later on
-    // private val repository = Repository(Api)
-
-
-    // the daysList is loaded and wrapped in LiveData private & public
+    // the daysList is loaded and wrapped in LiveData private(mutable) & public(static)
     private val _daysList = MutableLiveData<List<Day>>(repository.loadDays())
     val daysList: LiveData<List<Day>>
         get() = _daysList
 
+    // LATER: default for selectedDay = current day
+    private var _selectedDay = MutableLiveData<Day>()
+    val selectedDay: LiveData<Day>
+        get() = _selectedDay
 
-    // TODO: double check
-    // currentDay private & public
-    private lateinit var _currentDay: Day
-    val currentDay: Day
-        get() = _currentDay
-
-
-    // TODO: double check
-    private val _thoughtsList = MutableLiveData<List<Thought>>(mutableListOf())
-    val thoughtsList: LiveData<List<Thought>>
-    get() = _thoughtsList
-
-
-    // set currentDay & related thoughtList
-    fun initThoughts(idx: Int){
-        if(daysList != null){
-            _currentDay = daysList.value!![idx]
-            _thoughtsList.value = _currentDay.thoughts
-        }
+    // is called at instantiation of DayAdapter
+    fun setSelectedDay(day: Day){
+        _selectedDay.value = day
     }
 
+    // selectedDay.thoughts wrapped in LiveData private(mutable) & public(static)
+    private val _thoughtsList = MutableLiveData<List<Thought>>(selectedDay.value?.thoughts)
+    val thoughtsList: LiveData<List<Thought>>
+        get() = _thoughtsList
 
-    // TODO: chatwithme solution.
+    // selectedThought is determined when thought_item is clicked -> is wrapped in LiveData private(mutable) & public(static)
+    // Q: default is null ?
+    private var _selectedThought = MutableLiveData<Thought>()
+    val selectedThought: LiveData<Thought>
+        get() = _selectedThought
 
+    init {
+        _daysList.value = daysList.value
+    }
+
+    // is called at instantiation of ThoughtAdapter
+    fun setSelectedThought(thought: Thought){
+        _selectedThought.value = thought
+    }
+
+    // TODO:
+    fun newThought(content: String) {
+        // val newThought = Thought(content, "TODAY", "12:12", "02.02.2023", mutableListOf(), mutableListOf())
+        // _thoughtsList.value?.toMutableList()?.add(0, newThought)
+        // _thoughtsList.value = thoughtsList.value
+    }
+
+    // LATER: AI Api call
+    fun askAiForHelp(userInput: String) {
+        // Stuff to hand over to AI Api call:
+        // val context: String
+        // val userInput: String
+        // val instruction: String
+        // returns or adds MutableListOf<Observations> to current Thought
+    }
+
+    // TODO:
+    fun practice(){
+        // show List of CD
+        // radiobutton.setOnClickListener{...} -> new Instance of Observation()
+        // observation.name is a constant, observation.explanation is empthy by default
+        // if observation is not empty -> observation.isDone == true -> checkImage
+    }
+
+    // TODO:
+    fun addThought(newThought: Thought){
+        // selectedDay.thoughts.add(newThought)
+        // notifyItemInserted(thoughts.lastIndex)
+    }
+
+    // TODO:
+    fun deleteThought(thought: Thought){
+        // selectedDay = Day()
+        // val tmp = selectedDay.thoughts.indexOf(thought)
+        // selectedDay.thoughts.remove(thought)
+        // notifyItemRemoved(tmp)
+    }
 }

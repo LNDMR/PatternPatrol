@@ -24,37 +24,37 @@ class Repository {
     fun loadDays(): MutableList<Day> {
         return mutableListOf(
             Day(
-                toughts,
+                thoughts,
                 "26",
                 "Sun."
             ),
             Day(
-                toughts,
+                thoughts,
                 "25",
                 "Sat."
             ),
             Day(
-                toughts,
+                thoughts,
                 "24",
                 "Fri."
             ),
             Day(
-                toughts,
+                thoughts,
                 "23",
                 "Thu."
             ),
             Day(
-                toughts,
+                thoughts,
                 "22",
                 "Wed."
             ),
             Day(
-                toughts,
+                thoughts,
                 "21",
                 "Tue."
             ),
             Day(
-                toughts,
+                thoughts,
                 "20",
                 "Mon."
             )
@@ -130,7 +130,7 @@ class Repository {
 
 
     // TODO: tmp test data: list of thoughts
-    val toughts = mutableListOf<Thought>(
+    val thoughts = mutableListOf<Thought>(
         Thought(
             "Today was a bad day. I forgot my keys in the appartment. I am a failure.",
             "my keys",

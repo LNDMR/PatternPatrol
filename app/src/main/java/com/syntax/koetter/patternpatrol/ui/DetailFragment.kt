@@ -20,20 +20,35 @@ class DetailFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // dataBinding
         binding = FragmentDetailBinding.inflate(inflater)
         return binding.root
     }
 
-    // TODO: the currentThought object needs to be displayed
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //val detail
-        //val itemAdapter = ItemAdapter()
-        //binding.itemRecycler.adapter = itemAdapter
-//
-        //// livedata in viewModel is observed to give immediate update when changes occur
-        //viewModel.items.observe(viewLifecycleOwner) {
-        //    itemAdapter.submitList(it)
-        //}
+        super.onViewCreated(view, savedInstanceState)
+        binding.detailDateText.text = viewModel.selectedDay.value!!.date
+        // Q: What about 'binding.detailKeywordEditText.text' ?
+        binding.detailKeywordEditText.hint = viewModel.selectedThought.value!!.keyword.toString()
+
+
+        // TODO: needs to happen in home fragment?
+        // selectedThought -> RV -> bind()
+        // val thoughtAdapter =  ThoughtAdapter{
+        //     setSelectedThought(it)
+        // }
+        // binding.homeThoughtRecycler.adapter = thoughtAdapter
+
+        // TODO: new instance ObservationAdapter + link to RV
+        //  implement 'currentThought' in viewModel
+        // val observationAdapter = ObservationAdapter(viewModel.currentThought.patterns)
+        // binding.detailObservationRecycler.adapter = observationAdapter
+
+        // TODO: Observer for live data patternList
+        // viewModel.patternList.observe(viewLifecycleOwner){
+        //     observationAdapter.submitList(it)
+        // }
+
+        // TODO: practiceButton.setOnClickListener{...} -> viewModel.currentThought.practice()
+        // TODO: add new Observation => overlay list + checkboxes / radioButtons -> visibility of views in layout
     }
 }

@@ -1,66 +1,64 @@
 package com.syntax.koetter.patternpatrol.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.syntax.koetter.patternpatrol.R
-import com.syntax.koetter.patternpatrol.data.model.Day
 import com.syntax.koetter.patternpatrol.data.model.Thought
+import com.syntax.koetter.patternpatrol.databinding.ThoughtItemBinding
 
-// TODO: maybe constructor needs a parameter (val date: Day) to fill thoughtList -> date.thoughts
-class ThoughtAdapter() : RecyclerView.Adapter<ThoughtAdapter.ThoughtViewHolder>(){
+// constructor takes parameter get the right thoughtsList from 'currentDay.thoughts'
+class ThoughtAdapter(private val list: List<Thought>, val onClick: (Thought) -> Unit) : RecyclerView.Adapter<ThoughtAdapter.ThoughtViewHolder>(){
 
-    // TODO: understand where & how it ll be filled
-    private var thoughtsList = listOf<Thought>()
+    // dataList is updated by submitList()
+    // Q: first time filled ?
+    private var thoughtsList: List<Thought> = list
 
+    // view + layout that is needed to display the next item
+    inner class ThoughtViewHolder(val binding: ThoughtItemBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bindThought(thought: Thought){
+            binding.thoughtKeywordText.text = thought.keyword
+            binding.thoughtPreviewText.text = thought.content
+            binding.thoughtTimeText.text = thought.time
 
-    // is aware of the specific parts of the layout that need to be updated when the view is recycled
-    inner class ThoughtViewHolder(private val view: View) : RecyclerView.ViewHolder(view){
-        val thoughtKeyword: TextView = view.findViewById(R.id.thought_keyword_text)
-        val thoughtDate: TextView = view.findViewById(R.id.thought_date_text)
-        val thoughtTime: TextView = view.findViewById(R.id.thought_time_text)
-        val thoughtPreview: TextView = view.findViewById(R.id.thought_preview_text)
+            // edit already existing Thought instance in Detail Fragment
+            binding.thoughtCard.setOnClickListener {
+                // TODO: navigation to DetailFragment
+                Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_detailFragment)
+            }
+        }
+
     }
-
 
     // is called by the RecyclerView when it needs to create a new ThoughtViewHolder
-    // TODO: proper understanding
-    //  parameters: ViewGroup ? & why is viewType = Int ?
-    //  return: LayoutInflater returns instance of View ?
-    //  .form(context) ?
-    //  .inflate(layout-resource-id, root, isAttachedToRoot) ?
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ThoughtViewHolder {
-        val thoughtLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.thought_item, parent, false)
-        return ThoughtViewHolder(thoughtLayout)
+        val binding = ThoughtItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return ThoughtViewHolder(binding)
     }
 
+    // called by the RV when it needs to bind a new thought item to an existing ThoughtViewHolder instance
+    override fun onBindViewHolder(holder: ThoughtViewHolder, position: Int) {
+        if(!thoughtsList.isEmpty()) {
+            holder.bindThought(thoughtsList[position])
+            holder.binding.root.setOnClickListener {
+                onClick(thoughtsList[position])
+            }
+        } else holder.binding
 
-    // TODO: submitList(list)
-    fun submitList(list: List<Thought>){
-        thoughtsList = list
-        notifyItemInserted(list.lastIndex)
     }
 
-
-    // to inform the RecyclerView's LayoutManager of the total number of items in the dataset that the adapter is managing
+    // to inform the RV's LayoutManager of the total number of items that the adapter is managing
     override fun getItemCount(): Int {
         return thoughtsList.size
     }
 
-
-    // is called by the RecyclerView when it needs to bind a new thought to an existing ThoughtViewHolder instance
-    override fun onBindViewHolder(holder: ThoughtViewHolder, position: Int) {
-        val thought = thoughtsList[position]
-
-        // UI elements get to display new content
-        holder.thoughtKeyword.text = thought.keyword
-        holder.thoughtPreview.text = thought.content
-        // TODO: Time and Date objects need to be converted to String later on
-        //  for now they are implemented as Strings anyway
-        holder.thoughtDate.text = thought.date
-        holder.thoughtTime.text = thought.time
+    // TODO: needs to be observed in HF
+    // Q: how ?
+    fun submitList(list: List<Thought>){
+        thoughtsList = list
+        // notifyItemInserted()
+        // notifyItemChanged()
+        // notifyItemRemoved()
     }
 }

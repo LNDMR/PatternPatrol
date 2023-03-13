@@ -65,6 +65,7 @@
             android:ems="10"
             android:hint="Keyword"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toTopOf="@+id/detail_content_editMultiText"
             app:layout_constraintEnd_toStartOf="@+id/detail_time_text"
             app:layout_constraintStart_toStartOf="parent"

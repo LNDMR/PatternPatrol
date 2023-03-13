@@ -1,7 +1,7 @@
 package com.syntax.koetter.patternpatrol.data.model
 
 data class Day(
-    val thoughts: MutableList<Thought>,
+    val thoughts: MutableList<Thought> = mutableListOf(),
     // TODO: val date: LocalDate,
     //  tmp solution - System.currentTimeMillis() & Calendar() ??
     val date: String,
